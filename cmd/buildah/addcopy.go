@@ -49,6 +49,7 @@ type addCopyResults struct {
 	allowEmptyWildcard bool
 	noFollowSymlinks   bool
 	keepGitDir         bool
+	includes           []string
 }
 
 func createCommand(addCopy string, desc string, short string, opts *addCopyResults) *cobra.Command {
@@ -115,6 +116,7 @@ func applyFlagVars(flags *pflag.FlagSet, opts *addCopyResults) {
 	flags.StringVar(&opts.timestamp, "timestamp", "", "set timestamps on new content to `seconds` after the epoch")
 	flags.BoolVar(&opts.allowWildcard, "allow-wildcard", true, "allow glob patterns in source paths")
 	flags.BoolVar(&opts.allowEmptyWildcard, "allow-empty-wildcard", false, "don't error when glob patterns match nothing")
+	flags.StringSliceVar(&opts.includes, "include", nil, "include pattern when copying files")
 }
 
 func addcopyInit() {
@@ -307,6 +309,7 @@ func addAndCopyCmd(c *cobra.Command, args []string, verb string, iopts addCopyRe
 		FollowSymlink:         followSymlink,
 		KeepGitDir:            iopts.keepGitDir,
 		Proxy:                 http.ProxyFromEnvironment,
+		Includes:              iopts.includes,
 	}
 	if iopts.contextdir != "" {
 		var excludes []string
