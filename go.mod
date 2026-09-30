@@ -2,7 +2,7 @@ module go.podman.io/buildah
 
 // Warning: Ensure the "go" and "toolchain" versions match exactly to prevent unwanted auto-updates
 
-go 1.26.3
+go 1.26.8
 
 require (
 	github.com/containerd/platforms v1.0.0-rc.5
@@ -15,7 +15,7 @@ require (
 	github.com/fsouza/go-dockerclient v1.13.2
 	github.com/hashicorp/go-multierror v1.1.1
 	github.com/mattn/go-shellwords v1.0.15
-	github.com/moby/buildkit v0.33.0
+	github.com/moby/buildkit v0.33.1
 	github.com/moby/go-archive v0.3.3
 	github.com/moby/moby/client v0.6.0
 	github.com/moby/sys/capability v0.4.0
