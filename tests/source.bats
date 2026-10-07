@@ -149,7 +149,5 @@ load helpers
   expect_output --substring "Copying blob"
   expect_output --substring "Copying config"
 
-  run diff -r $srcdir $pulldir
-  # FIXME: if there's a nonzero chance of this failing, include actual diffs
-  assert "$status" -eq 0 "status from diff of srcdir vs pulldir"
+  diff -r "$srcdir" "$pulldir"
 }
