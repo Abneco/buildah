@@ -13,7 +13,7 @@ load helpers
   run_buildah from --cidfile ${TEST_SCRATCH_DIR}/cid.txt $WITH_POLICY_JSON busybox
   local cid=$(< ${TEST_SCRATCH_DIR}/cid.txt)
 
-  run_buildah info | tee ${TEST_SCRATCH_DIR}/info.txt
+  run_buildah info
 
   coproc "${PIPELOOP_BINARY}" "${BUILDAH_BINARY} ${BUILDAH_REGISTRY_OPTS} ${ROOTDIR_OPTS} serve-sftp ${cid}" "sshfs -f -o passive :/ ${mountpoint}"
   waited=0

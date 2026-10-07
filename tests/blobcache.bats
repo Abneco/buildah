@@ -80,15 +80,9 @@ function _check_matches() {
 	# must not contain "Skipping blob" since push must happen
 	assert "$output" !~ "Skipping blob"
 
-	# Clear local image and c/image's blob-info-cache
+	# Clear local image and blob cache
 	run_buildah rmi --all -f
-	cachedir=/var/lib
-	if is_rootless;
-	then
-		cachedir=$HOME/.local/share
-	fi
-	run rm -rf $blobcachedir/*
-	assert "$status" -eq 0 "status of `run rm $cachefile` must be 0"
+	rm -rf "${blobcachedir:?}"/*
 
 	# In first push blob must be skipped after vendoring https://github.com/containers/image/pull/1645
 	run_buildah pull dir:${outputdir}
