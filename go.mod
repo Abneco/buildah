@@ -10,14 +10,14 @@ require (
 	github.com/containers/ocicrypt v1.3.2
 	github.com/cyphar/filepath-securejoin v0.7.0
 	github.com/docker/distribution v2.8.3+incompatible
-	github.com/docker/go-connections v0.8.1
+	github.com/docker/go-connections v0.8.2
 	github.com/docker/go-units v0.5.0
 	github.com/fsouza/go-dockerclient v1.13.2
 	github.com/hashicorp/go-multierror v1.1.1
 	github.com/mattn/go-shellwords v1.0.16
 	github.com/moby/buildkit v0.33.1
 	github.com/moby/go-archive v0.3.3
-	github.com/moby/moby/client v0.6.1
+	github.com/moby/moby/client v0.6.2
 	github.com/moby/sys/capability v0.4.0
 	github.com/moby/sys/devices v0.1.0
 	github.com/moby/sys/userns v0.2.1
@@ -52,7 +52,7 @@ require (
 require (
 	cyphar.com/go-pathrs v0.2.6 // indirect
 	dario.cat/mergo v1.0.2 // indirect
-	github.com/Azure/go-ansiterm v0.0.0-20250102033503-faa5f7b0171c // indirect
+	github.com/Azure/go-ansiterm v0.0.0-20261006220739-8c912ac31dd4 // indirect
 	github.com/BurntSushi/toml v1.6.0 // indirect
 	github.com/Microsoft/go-winio v0.6.3-0.20251027160822-ad3df93bed29 // indirect
 	github.com/ProtonMail/go-crypto v1.4.1 // indirect
