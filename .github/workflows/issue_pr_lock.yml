@@ -14,7 +14,7 @@ on:
 jobs:
   # Ref: https://docs.github.com/en/actions/using-workflows/reusing-workflows
   closed_issue_discussion_lock:
-    uses: podman-container-tools/podman/.github/workflows/issue_pr_lock.yml@main
+    uses: podman-container-tools/podman/.github/workflows/issue_pr_lock.yml@main # zizmor: ignore[unpinned-uses] shared workflow; track podman main
     secrets:
       STALE_LOCKING_APP_PRIVATE_KEY: ${{ secrets.STALE_LOCKING_APP_PRIVATE_KEY }}
       ACTION_MAIL_SERVER: ${{ secrets.ACTION_MAIL_SERVER }}
