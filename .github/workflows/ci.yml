@@ -129,7 +129,7 @@ jobs:
       fail-fast: false
       matrix:
         storage: [vfs, overlay]
-    uses: ./.github/workflows/lima.yml
+    uses: $/.github/workflows/lima.yml
     with:
       runner: cncf-ubuntu-4-16-x86
       test: unit
@@ -146,7 +146,7 @@ jobs:
       fail-fast: false
       matrix:
         storage: [vfs, overlay]
-    uses: ./.github/workflows/lima.yml
+    uses: $/.github/workflows/lima.yml
     with:
       runner: cncf-ubuntu-8-32-x86
       test: conformance
@@ -169,7 +169,7 @@ jobs:
           - storage: overlay
             priv: root
             distro: fedora-rawhide
-    uses: ./.github/workflows/lima.yml
+    uses: $/.github/workflows/lima.yml
     with:
       runner: cncf-ubuntu-8-32-x86
       test: integration
@@ -182,7 +182,7 @@ jobs:
     needs: [validate, vendor, path-filter]
     if: needs.path-filter.outputs.code == 'true' || github.event_name != 'pull_request'
     name: in_podman
-    uses: ./.github/workflows/lima.yml
+    uses: $/.github/workflows/lima.yml
     with:
       runner: cncf-ubuntu-8-32-x86
       test: in_podman

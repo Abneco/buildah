@@ -1,13 +1,18 @@
 name: Assign Command
 
 on:
+  # No checkout of untrusted code; only issues: write with GITHUB_TOKEN.
+  # zizmor: ignore[dangerous-triggers]
   issue_comment:
     types: [created]
 
 jobs:
   assign:
-    # Only run on issue comments (not PR comments)
-    if: "!github.event.issue.pull_request && contains(github.event.comment.body, '/assign')"
+    # Only run on issue comments (not PR comments) in this repo (not forks).
+    if: |
+      !github.event.issue.pull_request &&
+      contains(github.event.comment.body, '/assign') &&
+      github.repository == 'podman-container-tools/buildah'
     runs-on: ubuntu-latest
     permissions:
       issues: write
